@@ -115,7 +115,7 @@ docker-compose up --build
 
 ## 🧑‍💻 Author
 
-Built with 💻 by [Your Name](https://github.com/your-username)
+Built with 💻 by [Kartikey](https://github.com/Json604)
 
 ---
 
