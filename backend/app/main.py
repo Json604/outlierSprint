@@ -22,3 +22,8 @@ app.include_router(analytics.router, prefix="/analytics")
 
 # Synthetic Logging Routes
 app.include_router(synthetic.router, prefix="/_synthetic")
+
+# Root Route to confirm backend is alive
+@app.get("/")
+def root():
+    return {"message": "Backend is running!"}
