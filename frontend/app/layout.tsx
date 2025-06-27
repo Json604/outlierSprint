@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { UserProvider } from '@/contexts/UserContext';
 import Navbar from '@/components/Navbar';
+import ClientSessionInit from '@/components/ClientSessionInit';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -20,6 +21,7 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <body className={inter.className}>
         <UserProvider>
+          <ClientSessionInit /> {/* Handles session logic safely on client */}
           <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black">
             <Navbar />
             <main>{children}</main>

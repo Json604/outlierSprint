@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from app.routes import (
     movies, events, plays, sports, activities,
     offers, giftcards, bookings, users,
@@ -6,6 +7,15 @@ from app.routes import (
 )
 
 app = FastAPI()
+
+# Allow frontend to send requests
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # In production, restrict to your frontend domain
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Content Routes
 app.include_router(movies.router, prefix="/movies")
