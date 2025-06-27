@@ -60,4 +60,6 @@ def log_event(request: Request, content: Dict[str, Any] = Body(...)):
 
 @router.get("/logs")
 def get_logs(session_id: str = None):
-    return logger.get_logs(session_id)
+    logs = logger.get_logs(session_id)
+    return JSONResponse(content=logs)
+
